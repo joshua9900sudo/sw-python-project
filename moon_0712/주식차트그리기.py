@@ -4,6 +4,7 @@ from PyQt5 import uic
 from PyQt5.QtCore import *
 import pandas as pd
 import matplotlib.pyplot as plt
+from PyQt5.QtGui import *
 
 form_class = uic.loadUiType("team.ui")[0]
 
@@ -13,12 +14,18 @@ class MyWindow(QMainWindow, form_class):
     def __init__(self):
         super().__init__()
         self.setupUi(self)
+        self.setWindowTitle("BITCOIN")
+        self.setWindowIcon(QIcon("bitbit.png"))
 
         self.pushButton.clicked.connect(self.btn_clicked)
         self.pushButton_2.clicked.connect(self.btn_clicked_2)
         self.pushButton_3.clicked.connect(self.btn_clicked_3)
         self.pushButton_4.clicked.connect(self.btn_clicked_4)
         self.pushButton_5.clicked.connect(self.btn_clicked_5)
+
+        ###
+        self.pushButtonCancel.clicked.connect(self.close)
+        ###
 
         self.lineEdit.returnPressed.connect(self.inquiry)
 
